@@ -9,7 +9,7 @@ public class Target : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hp = 50f;
+        hp = 500f;
     }
 
     // Update is called once per frame
