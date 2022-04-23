@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour
     {
         if(death == true)
         {
-            GameObject.Find("Particle System").SetActive(true);
-            
+
+            Destroy(gameObject);
 
             
         }
@@ -30,14 +30,20 @@ public class Enemy : MonoBehaviour
     {
 
         hp -= amount;
-        if (hp <= 100f)
+        if (hp <= 1f)
         {
             death = true;
+            Destroy(gameObject);
 
         }
     }
     public void Awake()
-    {
+    {   
         healthBarScript.slider.value = hp;
+    }
+
+    public void ReadyToShoot()
+    {
+
     }
 }
