@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 162744956}
   - component: {fileID: 162744955}
   - component: {fileID: 162744959}
+  - component: {fileID: 162744960}
   m_Layer: 0
   m_Name: ShootAble
   m_TagString: ShootAble
@@ -328,6 +329,20 @@ MonoBehaviour:
   maxHp: 200
   healthBarScript: {fileID: 0}
   death: 0
+--- !u!114 &162744960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162744954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcf89aec2c8f2c4c81de7256fc3a8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 543409307}
+  enemy: {fileID: 162744959}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +356,6 @@ GameObject:
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
   - component: {fileID: 330585548}
-  - component: {fileID: 330585550}
   - component: {fileID: 330585549}
   m_Layer: 0
   m_Name: Main Camera
@@ -478,26 +492,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 200
   playerBody: {fileID: 1000122602}
---- !u!114 &330585550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: decfabb0522572b4d90c5573fd9f15ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  v: {x: 0, y: 0, z: 0}
-  range: 30
-  range15m: 0
-  range30m: 0
-  damage: 10
-  damage15m: 5
-  damage30m: 3
-  mag: 30
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1089,6 @@ GameObject:
   - component: {fileID: 1578309382}
   - component: {fileID: 1578309386}
   - component: {fileID: 1578309388}
-  - component: {fileID: 1578309387}
   m_Layer: 5
   m_Name: EnemyHealth
   m_TagString: Untagged
@@ -1236,20 +1229,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1578309387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578309381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbcf89aec2c8f2c4c81de7256fc3a8db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 543409307}
-  enemy: {fileID: 162744959}
 --- !u!114 &1578309388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1681,8 +1660,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3149466787731729828}
+  - component: {fileID: 3149466787731729829}
   m_Layer: 0
-  m_Name: gunwithanimation
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1722,6 +1702,27 @@ Transform:
   m_Father: {fileID: 330585546}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3149466787731729829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2377610296749700894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decfabb0522572b4d90c5573fd9f15ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  v: {x: 0, y: 0, z: 0}
+  range: 30
+  range15m: 0
+  range30m: 0
+  damage: 10
+  damage15m: 5
+  damage30m: 3
+  mag: 30
+  fpsCamera: {fileID: 330585545}
 --- !u!33 &4256106454506841360
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1840,6 +1841,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8546791164366342379}
   - component: {fileID: 9067890009040786002}
+  - component: {fileID: 9067890009040786003}
+  - component: {fileID: 9067890009040786004}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -1867,3 +1870,41 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9067890009040786003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067890009040786001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb8b83764a363d49927c8ccf9029706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  v: {x: 0, y: 0, z: 0}
+  range: 0
+  attackCooldown: 2
+  damage: 30
+  canAttack: 0
+  fpsCamera: {fileID: 330585545}
+  swordDamage: {fileID: 0}
+  swordAnimation: {fileID: 0}
+--- !u!114 &9067890009040786004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067890009040786001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1c39f6af2cc5c4c9f679793336ae01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sword: {fileID: 9067890009040786001}
+  gun: {fileID: 2377610296749700894}
+  canAttack: 1
+  attackCooldown: 2
+  shootScript: {fileID: 0}
+  weaponCycle: 0

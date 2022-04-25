@@ -10,6 +10,7 @@ public class SwordAnimation : MonoBehaviour
     public ShootScript shootScript;
     public float weaponCycle;
     
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
