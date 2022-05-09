@@ -1667,7 +1667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2860909095460583467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,6 +1723,7 @@ MonoBehaviour:
   damage30m: 3
   mag: 30
   fpsCamera: {fileID: 330585545}
+  swordDamage: {fileID: 0}
 --- !u!33 &4256106454506841360
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1849,7 +1850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &9067890009040786002
 Animator:
   serializedVersion: 4

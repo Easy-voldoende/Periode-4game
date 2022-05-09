@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
 
             
         }
+        healthBarScript.slider.value = hp;
     }
     public void TakeDamage(float amount)
     {

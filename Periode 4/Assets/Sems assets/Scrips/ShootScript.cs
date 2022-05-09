@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShootScript : MonoBehaviour
 {
-    public RaycastHit hit;
+    
     public Vector3 v;
     public float range;
     public float range15m;
@@ -15,14 +15,16 @@ public class ShootScript : MonoBehaviour
     public float damage30m = 3;
     public float mag = 30;
     public Camera fpsCamera;
-    
+    public SwordDamage swordDamage;
 
     public void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
+            
         }
+
     }
     public void Start()
     {
