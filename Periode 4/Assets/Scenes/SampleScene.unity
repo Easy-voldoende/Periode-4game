@@ -930,6 +930,7 @@ GameObject:
   - component: {fileID: 1000122599}
   - component: {fileID: 1000122604}
   - component: {fileID: 1000122605}
+  - component: {fileID: 1000122606}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1075,6 +1076,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrounded: 0
   jumpPower: {x: 0, y: 10, z: 0}
+--- !u!114 &1000122606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000122598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd4441e5575a1b4eadfa3367740cc1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun: {fileID: 2377610296749700894}
+  sword: {fileID: 9067890009040786001}
+  cycle: 0
 --- !u!1 &1578309381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,3 +1946,4 @@ MonoBehaviour:
   attackCooldown: 2
   shootScript: {fileID: 0}
   weaponCycle: 0
+  weaponswitch: {fileID: 0}

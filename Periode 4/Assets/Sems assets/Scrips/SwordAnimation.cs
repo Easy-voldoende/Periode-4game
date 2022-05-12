@@ -9,8 +9,11 @@ public class SwordAnimation : MonoBehaviour
     public float attackCooldown = 1.0f;
     public ShootScript shootScript;
     public float weaponCycle;
+    public WeaponSwitch weaponswitch;
     
     
+   
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -19,6 +22,12 @@ public class SwordAnimation : MonoBehaviour
             {
                 SwordAttack();
             }
+        }
+
+        if(weaponswitch.cycle == 2)
+        {
+            canAttack = true;
+            
         }
     }
 
@@ -40,5 +49,6 @@ public class SwordAnimation : MonoBehaviour
     public void Start()
     {
         weaponCycle = 0f;
+        weaponswitch = GameObject.Find("Player").GetComponent<WeaponSwitch>();
     }
 }
