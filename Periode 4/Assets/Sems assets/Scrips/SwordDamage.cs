@@ -38,7 +38,7 @@ public class SwordDamage : MonoBehaviour
     }
     public void Start()
     {
-        range = 10f;
+        range = 3f;
         canAttack = true;
     }
 
