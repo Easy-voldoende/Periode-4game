@@ -11,7 +11,7 @@ public class SwordAnimation : MonoBehaviour
     public float weaponCycle;
     public WeaponSwitch weaponswitch;
     public int attackState;
-    
+    public float attackTime;
     
     
    
@@ -19,7 +19,7 @@ public class SwordAnimation : MonoBehaviour
     void Update()
     {
 
-        if (attackState == 2)
+        if (attackState == 3)
         {
             attackState = 0;
             canAttack = true;
@@ -29,14 +29,38 @@ public class SwordAnimation : MonoBehaviour
             if (canAttack)
             {
                 SwordAttack();
-                StartCoroutine(ResetAttackCooldown());
+               
 
 
             }
         }
-        
+        attackTime -= 1 * Time.deltaTime * 10;
+        if (Input.GetMouseButtonDown(0))
+        {
+            attackTime += 8;
+        }
 
+        if (attackTime < 5)
+        {
+            attackState = 0;
+        }
+     
+        if (attackTime < 0)
+        {
+            attackTime = 0;
 
+        }
+        if (attackTime < 1)
+        {
+            Debug.Log("attackTime < 1");
+            if (attackState > 1)
+            {
+                attackState = 0;
+            }
+        }
+
+        Animator anim = sword.GetComponent<Animator>();
+        anim.SetInteger("AttackState", attackState);
     }
 
 
@@ -44,27 +68,24 @@ public class SwordAnimation : MonoBehaviour
     {
         
         Animator anim = sword.GetComponent<Animator>();
+        anim.SetInteger("AttackState", attackState);
 
 
-        anim.SetTrigger("Slash");
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            attackState = 1;
+            attackState += 1;
+
 
         }
-        else if(attackState == 1)
+       
+        if(attackState > 2)
         {
-            attackState = 2;
-            canAttack = false;
+            attackState = 0;
         }
-        if(attackState == 2)
-        {
-            StartCoroutine(ResetAttackCooldown());
-        }
-         anim.SetInteger("AttackState", attackState);
-        
-      
-        
+         
+       
+
+
     }
    
     

@@ -931,6 +931,7 @@ GameObject:
   - component: {fileID: 1000122604}
   - component: {fileID: 1000122605}
   - component: {fileID: 1000122606}
+  - component: {fileID: 1000122607}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1092,6 +1093,20 @@ MonoBehaviour:
   sword: {fileID: 9067890009040786001}
   cycle: 0
   swordAnimation: {fileID: 0}
+--- !u!114 &1000122607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000122598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a20f5d5d03cb640bb1779f99a4db28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  damageCooldown: 0
 --- !u!1 &1578309381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,4 +1963,5 @@ MonoBehaviour:
   shootScript: {fileID: 0}
   weaponCycle: 0
   weaponswitch: {fileID: 0}
-  clickDuringAnim: 0
+  attackState: 0
+  attackTime: 0
