@@ -58,6 +58,10 @@ public class SwordAnimation : MonoBehaviour
                 attackState = 0;
             }
         }
+        if(attackState == 0)
+        {
+            attackCooldown = 0;
+        }
 
         Animator anim = sword.GetComponent<Animator>();
         anim.SetInteger("AttackState", attackState);

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShootScript : MonoBehaviour
 {
-    
+
     public Vector3 v;
     public float range;
     public float range15m;
@@ -22,7 +22,7 @@ public class ShootScript : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
-            
+
         }
 
     }
@@ -68,11 +68,11 @@ public class ShootScript : MonoBehaviour
             }
 
         }
-        
-       
-        
-      
-       
+
+
+
+
+
 
     }
 
