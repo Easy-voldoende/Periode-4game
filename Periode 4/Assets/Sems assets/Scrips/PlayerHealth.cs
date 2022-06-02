@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public float health;
     public float damageCooldown;
     public bool death;
-
+    public Slider slider;
 
 
     public void Start()
@@ -31,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
         {
 
         }
+        slider.value = health;
 
     }
     public void OnCollisionEnter(Collision collision)
