@@ -10,7 +10,7 @@ public class ShootScript1 : MonoBehaviour
     public float range;
     public float damage;
     public float damageDropoff;
-    public float finalDamage;
+    
     public float mag = 30;
     public Camera fpsCamera;
     
@@ -39,15 +39,14 @@ public class ShootScript1 : MonoBehaviour
         
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
+            float finalDamage;
             Enemy enemy = hit.transform.GetComponent<Enemy>();
             if(hit.transform.gameObject.tag == "ShootAble")
             {
-                finalDamage = damage -= damageDropoff;
+                finalDamage = damage - damageDropoff;
                 enemy.TakeDamage(finalDamage);
                 Debug.Log(hit.distance);
-                finalDamage = 0f;
-                damage = 30f;
-
+                
             }
             
         }
