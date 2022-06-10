@@ -36,46 +36,17 @@ public class Ai : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, WhatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, WhatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange)
-        {
-            Patroling();
-        }
         if (playerInSightRange && !playerInAttackRange)
         {
             ChasePlayer();
         }
-        if (playerInAttackRange)
+        else if (playerInAttackRange)
         {
             AttackPlayer();
         }
     }
 
-    private void Patroling()
-    {
-        print("i'm patroling");
-        if (!walkPointSet) SearchWalkPoint();
-
-        if (walkPointSet)
-            agent.SetDestination(walkPoint);
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-        //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1F)
-            walkPointSet = false;
-    }
-
-    private void SearchWalkPoint()
-    {
-        //Calculate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
-
-        if (Physics.Raycast(walkPoint, -transform.up, 2F, WhatIsGround))
-            walkPointSet = true;
-    }
+   
 
     private void ChasePlayer()
     {
