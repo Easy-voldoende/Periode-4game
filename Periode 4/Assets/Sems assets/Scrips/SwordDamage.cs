@@ -14,27 +14,11 @@ public class SwordDamage : MonoBehaviour
     
     public Camera fpsCamera;
     public SwordDamage swordDamage;
-    public SwordAnimation swordAnimation;
+   
 
     public void Update()
     {
-       
-            if (Input.GetButtonDown("Fire1"))
-            {
-               
-                
-               if(canAttack == true)
-               {
-                Shoot();
-               }
-                
-
-            }
-        
-        
-           
-        
-
+        Shoot();
     }
     public void Start()
     {
@@ -47,20 +31,35 @@ public class SwordDamage : MonoBehaviour
     {
         
         RaycastHit hit;
-        
-        
-          
-          
-            if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
-            {
-                Enemy enemy = hit.transform.GetComponent<Enemy>();
+        SwordAnimation swordAnimation = gameObject.GetComponent<SwordAnimation>();
+
+     if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
+     {
+         Enemy enemy = hit.transform.GetComponent<Enemy>();
+
+         if (swordAnimation.attackState == 1)
+         {
+                if(canAttack == true)
                 {
+                    Debug.Log("Attackstate 1");
                     enemy.TakeDamage(damage);
-                    Debug.Log("Slash!");
                     canAttack = false;
                     StartCoroutine(ResetAttackCoolDown());
                 }
-            }
+                else if(swordAnimation.attackState == 1)
+                {
+                    if (Input.GetButtonDown("Fire1"))
+                    {
+                        Debug.Log("Attackstate 1");
+                        enemy.TakeDamage(damage);
+                        canAttack = false;
+                        StartCoroutine(ResetAttackCoolDown());
+                    }
+                }
+         }
+
+
+     }
           
         
        
@@ -79,6 +78,16 @@ public class SwordDamage : MonoBehaviour
     }
 
 
+
+
+
+
+
+    public void Awake()
+    {
+        
+       
+    }
 }
 
 
