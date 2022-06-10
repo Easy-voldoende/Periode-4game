@@ -34,6 +34,10 @@ public class SwordAnimation : MonoBehaviour
 
             }
         }
+        if(attackTime > 10)
+        {
+            attackTime = 10;
+        }
         attackTime -= 1 * Time.deltaTime * 10;
         if (Input.GetMouseButtonDown(0))
         {

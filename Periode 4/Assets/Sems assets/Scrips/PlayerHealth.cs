@@ -23,27 +23,20 @@ public class PlayerHealth : MonoBehaviour
         {
             damageCooldown = 0;
         }
-        if(health < 1)
-        {
-            death = true; 
-        }
+        
         if(death == true)
         {
 
         }
         slider.value = health;
-
+      
     }
-    public void OnCollisionEnter(Collision collision)
+    public void DoDamage(float damageToDo)
     {
-       
-        if(damageCooldown < 1)
+        health -= damageToDo;
+        if(health <= 0)
         {
-            if (collision.gameObject.tag == "ShootAble")
-            {
-                health -= 10;
-                damageCooldown += 3;
-            }
+            death = true;
         }
     }
 }
