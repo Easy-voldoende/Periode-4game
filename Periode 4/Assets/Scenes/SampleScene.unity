@@ -199,6 +199,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20885855}
   m_CullTransparentMesh: 1
+--- !u!1 &162744954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8575076368631712475, guid: 174331df02a25f84895beb08ba5f0d6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8575076368521396385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &162744962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162744954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea9413091389c84dab8ddd934c8a4d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1000122602}
+  damg: 0
+  inSightRange: 20
+  attackRange: 1
+  agent: {fileID: 0}
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointSet: 0
+  walkPointRange: 10
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,7 +1854,8 @@ PrefabInstance:
       propertyPath: cameraToLookAt
       value: 
       objectReference: {fileID: 330585545}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4978959123048997589, guid: 174331df02a25f84895beb08ba5f0d6a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 174331df02a25f84895beb08ba5f0d6a, type: 3}
 --- !u!1 &8834540429174087012
 GameObject:
@@ -1906,7 +1933,6 @@ MonoBehaviour:
   canAttack: 0
   fpsCamera: {fileID: 330585545}
   swordDamage: {fileID: 0}
-  swordAnimation: {fileID: 0}
 --- !u!114 &9067890009040786004
 MonoBehaviour:
   m_ObjectHideFlags: 0
