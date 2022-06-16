@@ -56,7 +56,7 @@ public class SwordAnimation : MonoBehaviour
         }
         if (attackTime < 1)
         {
-            Debug.Log("attackTime < 1");
+          
             if (attackState > 1)
             {
                 attackState = 0;

@@ -35,29 +35,32 @@ public class SwordDamage : MonoBehaviour
 
      if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
      {
-         Enemy enemy = hit.transform.GetComponent<Enemy>();
+      
+           if(hit.transform.gameObject.tag == "ShootAble")
+           {
+                Enemy enemy = hit.transform.GetComponent<Enemy>();
 
-         if (swordAnimation.attackState == 1)
-         {
-                if(canAttack == true)
+                if (swordAnimation.attackState == 1)
                 {
-                    Debug.Log("Attackstate 1");
-                    enemy.TakeDamage(damage);
-                    canAttack = false;
-                    StartCoroutine(ResetAttackCoolDown());
-                }
-                else if(swordAnimation.attackState == 1)
-                {
-                    if (Input.GetButtonDown("Fire1"))
+                    if (canAttack == true)
                     {
                         Debug.Log("Attackstate 1");
                         enemy.TakeDamage(damage);
                         canAttack = false;
                         StartCoroutine(ResetAttackCoolDown());
                     }
+                    else if (swordAnimation.attackState == 1)
+                    {
+                        if (Input.GetButtonDown("Fire1"))
+                        {
+                            Debug.Log("Attackstate 1");
+                            enemy.TakeDamage(damage);
+                            canAttack = false;
+                            StartCoroutine(ResetAttackCoolDown());
+                        }
+                    }
                 }
-         }
-
+            }
 
      }
           

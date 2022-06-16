@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public float hp;
     public float maxHp;
-    public HealthBarScript healthBarScript;
+    
     public bool death;
     void Start()
     {
@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HealthBarScript healthBarScript = GameObject.Find("ShootAble").GetComponent<HealthBarScript>();
         if(death == true)
         {
 
@@ -25,7 +26,8 @@ public class Enemy : MonoBehaviour
 
             
         }
-        healthBarScript.slider.value = hp;
+        hp = healthBarScript.slider.value;
+        
     }
     public void TakeDamage(float amount)
     {
@@ -38,10 +40,7 @@ public class Enemy : MonoBehaviour
 
         }
     }
-    public void Awake()
-    {   
-        healthBarScript.slider.value = hp;
-    }
+   
 
     public void ReadyToShoot()
     {
