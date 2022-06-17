@@ -434,7 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1000122602}
   damg: 0
-  inSightRange: 20
+  inSightRange: 15
   attackRange: 1
   agent: {fileID: 0}
   walkPoint: {x: 0, y: 0, z: 0}
