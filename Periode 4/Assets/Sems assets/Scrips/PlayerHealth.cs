@@ -33,10 +33,13 @@ public class PlayerHealth : MonoBehaviour
     }
     public void DoDamage(float damageToDo)
     {
-        health -= damageToDo;
-        if(health <= 0)
-        {
-            death = true;
-        }
+       if(damageCooldown == 0)
+       {
+            health -= damageToDo;
+            if (health <= 0)
+            {
+                death = true;
+            }
+       }
     }
 }

@@ -40,12 +40,13 @@ public class ShootScript1 : MonoBehaviour
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
             float finalDamage;
-            Enemy enemy = hit.transform.GetComponent<Enemy>();
-            if(hit.transform.gameObject.tag == "ShootAble")
+            Enemy enemy = GameObject.Find("ShootAble").GetComponent<Enemy>();
+            if(hit.transform.gameObject.name == "ShootAble")
             {
                 finalDamage = damage - damageDropoff;
-                enemy.TakeDamage(finalDamage);
-                Debug.Log(hit.distance);
+                enemy.TakeDamage(damage);
+                Debug.Log(finalDamage);
+                
                 
             }
             

@@ -36,7 +36,7 @@ public class SwordDamage : MonoBehaviour
      if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
      {
       
-           if(hit.transform.gameObject.tag == "ShootAble")
+           if(hit.transform.gameObject.name == "ShootAble")
            {
                 Enemy enemy = hit.transform.GetComponent<Enemy>();
 

@@ -10,8 +10,8 @@ public class HealthBarScript : MonoBehaviour
     public void Start()
     {
         
-        slider.maxValue = 200f;
-        slider.value = enemy.hp;
+        
+        
     }
 
 
