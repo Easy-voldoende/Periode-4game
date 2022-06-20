@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float hp;
     public float maxHp;
     public Slider slider;
+    public GameObject[] enemyLoot;
     
     public bool death;
     void Start()
@@ -20,12 +21,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HealthBarScript healthBarScript = GameObject.Find("ShootAble").GetComponent<HealthBarScript>();
+
         if(death == true)
         {
+            int indexToDrop = Random.Range(0, enemyLoot.Length);
+            Instantiate(enemyLoot[indexToDrop], transform.position, Quaternion.identity);
 
             Destroy(gameObject);
-
+            
             
         }
 
@@ -59,5 +62,11 @@ public class Enemy : MonoBehaviour
            }
        }
     }
-
+    public void EnemyDrops()
+    {
+        if(death == true)
+        {
+            
+        }
+    }
 }

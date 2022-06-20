@@ -405,6 +405,9 @@ MonoBehaviour:
   hp: 200
   maxHp: 200
   slider: {fileID: 543409307}
+  enemyLoot:
+  - {fileID: 919132149155446097, guid: 9e00292bba74ae34fa58af6e89a7ba11, type: 3}
+  - {fileID: 919132149155446097, guid: 9e00292bba74ae34fa58af6e89a7ba11, type: 3}
   death: 0
 --- !u!114 &162744962
 MonoBehaviour:

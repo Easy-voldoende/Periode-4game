@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
 
         }
         slider.value = health;
+        
       
     }
     public void DoDamage(float damageToDo)
