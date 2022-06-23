@@ -7,7 +7,7 @@ public class SwordAnimation : MonoBehaviour
     public GameObject sword, gun;
     public bool canAttack = true;
     public float attackCooldown = 0.1f;
-    public ShootScript shootScript;
+    public ShootScript1 shootScript;
     public float weaponCycle;
     public WeaponSwitch weaponswitch;
     public int attackState;
@@ -90,8 +90,8 @@ public class SwordAnimation : MonoBehaviour
         {
             attackState = 0;
         }
-         
-       
+
+
 
 
     }

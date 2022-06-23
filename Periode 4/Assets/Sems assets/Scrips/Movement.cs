@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     public float walkSpeed;
     public float sprintSpeed;
     public float crouchSpeed;
-    public bool isSprinting;
+    public bool canSprint;
     public bool isWalking;
     public bool isCrouching;
     public Transform cam;
@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
     public bool standingStill;
     public bool isGrounded;
     public Vector3 jumpPower;
+    public bool isSprinting;
 
     //rotation
     public float sensitivity = 200f;
@@ -40,18 +41,44 @@ public class Movement : MonoBehaviour
         movement.z = vertical;
         transform.Translate(movement * walkSpeed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        PlayerStamina playerStam = GameObject.Find("Player").GetComponent<PlayerStamina>();
+        if(playerStam.stamina > 1)
         {
-            isSprinting = true;
-            isWalking = false;
-            walkSpeed = 12f;
+            canSprint = true;
+
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        else if(playerStam.stamina < 1)
         {
-            isSprinting = false;
+            canSprint = false;
+         
+        }
+
+        if(canSprint == true)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                isWalking = false;
+                walkSpeed = 12f;
+                isSprinting = true;
+            }
+        }
+       
+
+        if(canSprint == false)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
             isWalking = true;
             walkSpeed = 5f;
+            isSprinting = false;
         }
+
+
 
         if (Input.GetKey(KeyCode.LeftControl))
         {
@@ -63,7 +90,7 @@ public class Movement : MonoBehaviour
             isCrouching = false;
             if (isCrouching == false)
             {
-                if (isSprinting == false)
+                if (canSprint == false)
                 {
                     walkSpeed = 5f;
                 }

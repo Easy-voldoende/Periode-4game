@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float damageCooldown;
     public bool death;
     public Slider slider;
-
+    
 
     public void Start()
     {
@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         
         if(death == true)
         {
-
+           
         }
         slider.value = health;
         

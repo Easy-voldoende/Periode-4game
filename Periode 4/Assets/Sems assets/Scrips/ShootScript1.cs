@@ -18,21 +18,38 @@ public class ShootScript1 : MonoBehaviour
 
     public void Update()
     {
+        if(mag > 1)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+
+            }
+            damageDropoff = hit.distance;
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
-            Shoot();
-
+            mag -= 1;
         }
-        damageDropoff = hit.distance;
         
-        
+        if(mag < 0)
+        {
+            mag = 0;
+        }
+
+        if (Input.GetKeyDown("r"))
+        {
+            mag = 30;
+        }
+
     }
     public void Start()
     {
         range = 30f;
         damage = 30f;
     }
-
+    
 
     public void Shoot()
     {
@@ -40,8 +57,8 @@ public class ShootScript1 : MonoBehaviour
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
             float finalDamage;
-            Enemy enemy = GameObject.Find("ShootAble").GetComponent<Enemy>();
-            if(hit.transform.gameObject.name == "ShootAble")
+            Enemy enemy = hit.transform.gameObject.GetComponent<Enemy>();
+            if (hit.transform.gameObject.tag == "ShootAble")
             {
                 finalDamage = damage - damageDropoff;
                 enemy.TakeDamage(damage);
