@@ -59,11 +59,11 @@ public class PlayerStamina : MonoBehaviour
         {
             stamina += 10f * Time.deltaTime;
         }
-        if(movement.isSprinting == true)
+        if(movement.isSprinting == true )
         {
             staminaDrain = true;
         }
-        if(movement.isSprinting == false)
+        else
         {
             staminaDrain = false;
         }

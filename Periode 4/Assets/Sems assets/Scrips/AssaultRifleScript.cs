@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class ShootScript1 : MonoBehaviour
+public class AssaultRifleScript : MonoBehaviour
 {
 
     public Vector3 v;
@@ -13,56 +13,79 @@ public class ShootScript1 : MonoBehaviour
     public float damage;
     public float damageDropoff;
     public bool isFiring;
-    
+
     public float ammo = 30;
     public Camera fpsCamera;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI ammoDisplay;
+    public float timeBetweenShots;
     
+
     RaycastHit hit;
+
+
+    public void Start()
+    {
+        range = 50f;
+        damage = 25f;
+        timeBetweenShots = 0.1f;
+        
+    }
 
     public void Update()
     {
-        if(ammo > 1)
+        if (ammo > 1)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButton("Fire1") && timeBetweenShots == 0f)
             {
                 Shoot();
+                timeBetweenShots = 0.1f;
                 ammo--;
+
             }
-            damageDropoff = hit.distance;
+
+
+
+
+
+        }
+        timeBetweenShots -= 1 * Time.deltaTime;
+        damageDropoff = hit.distance;
+
+        if (timeBetweenShots <= 0f)
+        {
+            timeBetweenShots = 0f;
         }
 
-        text.text = ammo.ToString();
-        
-        if(ammo < 0)
+        if (ammo < 0)
         {
             ammo = 0;
         }
 
         if (Input.GetKeyDown("r"))
         {
-            ammo = 15;
+            ammo = 30;
         }
-        if(Input.GetMouseButtonDown(0) && isFiring && ammo >0)
+        if (Input.GetMouseButton(0))
         {
             isFiring = true;
-            ammo--;
-            isFiring = false;
+            
 
         }
+        else
+        {
+            isFiring = false;
+        }
+        ammoDisplay.text = ammo.ToString();
     }
-    public void Start()
-    {
-        range = 30f;
-        damage = 30f;
-    }
-    
+
+
 
     public void Shoot()
     {
-        
+
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
+
             float finalDamage;
             Enemy enemy = hit.transform.gameObject.GetComponent<Enemy>();
             if (hit.transform.gameObject.tag == "ShootAble")
@@ -70,10 +93,10 @@ public class ShootScript1 : MonoBehaviour
                 finalDamage = damage - damageDropoff;
                 enemy.TakeDamage(damage);
                 Debug.Log(finalDamage);
-                
-                
+
+
             }
-            
+
         }
 
     }

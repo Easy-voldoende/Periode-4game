@@ -19,6 +19,9 @@ public class Movement : MonoBehaviour
     public bool isGrounded;
     public Vector3 jumpPower;
     public bool isSprinting;
+    public GameObject gun;
+    public GameObject sword;
+    public GameObject gun2;
 
     //rotation
     public float sensitivity = 200f;
