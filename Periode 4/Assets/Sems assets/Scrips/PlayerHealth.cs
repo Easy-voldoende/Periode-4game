@@ -6,14 +6,18 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public float health;
+    public float maxHealth = 100;
+    public float minHealth = 0;
     public float damageCooldown;
     public bool death;
     public Slider slider;
+    public bool inCombat;
+    public float combatCooldown;
     
 
     public void Start()
     {
-        health = 100;
+        health = maxHealth;
         death = false;
     }
     void Update()
@@ -29,8 +33,37 @@ public class PlayerHealth : MonoBehaviour
            
         }
         slider.value = health;
+
+        if(combatCooldown > 0)
+        {
+            inCombat = true;
+        }
+        combatCooldown -= 1 * Time.deltaTime;
+        if(combatCooldown < 0)
+        {
+            combatCooldown = 0;
+        }
+        if(combatCooldown == 0)
+        {
+            inCombat = false;
+        }
+        else if(combatCooldown > 5)
+        {
+            combatCooldown = 5;
+        }
+
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
         
-      
+
+        if(inCombat == false)
+        {
+            health += 5 * Time.deltaTime;
+        }
+
+
     }
     public void DoDamage(float damageToDo)
     {
@@ -42,5 +75,15 @@ public class PlayerHealth : MonoBehaviour
                 death = true;
             }
        }
+    }
+
+    
+    
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "ShootAble")
+        {
+            combatCooldown += 5;
+        }
     }
 }

@@ -67,11 +67,12 @@ public class ShootScript1 : MonoBehaviour
         
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
-            Instantiate(bloodFX, hit.transform.position, Quaternion.identity);
+            
             float finalDamage;
             Enemy enemy = hit.transform.gameObject.GetComponent<Enemy>();
             if (hit.transform.gameObject.tag == "ShootAble")
             {
+                Instantiate(bloodFX, hit.transform.position, Quaternion.identity);
                 finalDamage = damage - damageDropoff;
                 enemy.TakeDamage(damage);
                 Debug.Log(finalDamage);

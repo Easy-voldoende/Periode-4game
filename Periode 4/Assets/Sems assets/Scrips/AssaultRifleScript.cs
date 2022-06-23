@@ -89,12 +89,13 @@ public class AssaultRifleScript : MonoBehaviour
         {
 
             
-            Instantiate(bloodFX, hit.transform.position, Quaternion.identity);
+            
 
             float finalDamage;
             Enemy enemy = hit.transform.gameObject.GetComponent<Enemy>();
             if (hit.transform.gameObject.tag == "ShootAble")
             {
+                Instantiate(bloodFX, hit.transform.position, Quaternion.identity);
                 finalDamage = damage - damageDropoff;
                 enemy.TakeDamage(damage);
                 Debug.Log(finalDamage);
