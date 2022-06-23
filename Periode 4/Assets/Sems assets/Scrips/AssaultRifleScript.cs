@@ -18,6 +18,8 @@ public class AssaultRifleScript : MonoBehaviour
     public Camera fpsCamera;
     public TextMeshProUGUI ammoDisplay;
     public float timeBetweenShots;
+    public ParticleSystem muzzleFlash;
+    public ParticleSystem bloodFX;
     
 
     RaycastHit hit;
@@ -82,9 +84,12 @@ public class AssaultRifleScript : MonoBehaviour
 
     public void Shoot()
     {
-
+        muzzleFlash.Play();
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
+
+            
+            Instantiate(bloodFX, hit.transform.position, Quaternion.identity);
 
             float finalDamage;
             Enemy enemy = hit.transform.gameObject.GetComponent<Enemy>();

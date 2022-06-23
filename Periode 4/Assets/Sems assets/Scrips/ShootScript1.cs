@@ -17,6 +17,7 @@ public class ShootScript1 : MonoBehaviour
     public float ammo = 30;
     public Camera fpsCamera;
     public TextMeshProUGUI text;
+    public ParticleSystem bloodFX;
     
     RaycastHit hit;
 
@@ -28,7 +29,7 @@ public class ShootScript1 : MonoBehaviour
             {
                 Shoot();
                 ammo--;
-                muzzleFlash.Play();
+                
                 
             }
             damageDropoff = hit.distance;
@@ -62,9 +63,11 @@ public class ShootScript1 : MonoBehaviour
 
     public void Shoot()
     {
+        muzzleFlash.Play();
         
         if (Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hit, range))
         {
+            Instantiate(bloodFX, hit.transform.position, Quaternion.identity);
             float finalDamage;
             Enemy enemy = hit.transform.gameObject.GetComponent<Enemy>();
             if (hit.transform.gameObject.tag == "ShootAble")
@@ -73,7 +76,7 @@ public class ShootScript1 : MonoBehaviour
                 enemy.TakeDamage(damage);
                 Debug.Log(finalDamage);
                 
-                
+
             }
             
         }
