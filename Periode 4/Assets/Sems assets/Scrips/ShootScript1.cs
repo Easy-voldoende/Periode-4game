@@ -13,7 +13,7 @@ public class ShootScript1 : MonoBehaviour
     public float damage;
     public float damageDropoff;
     public bool isFiring;
-    
+    public ParticleSystem muzzleFlash;
     public float ammo = 30;
     public Camera fpsCamera;
     public TextMeshProUGUI text;
@@ -22,12 +22,14 @@ public class ShootScript1 : MonoBehaviour
 
     public void Update()
     {
-        if(ammo > 1)
+        if(ammo > 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
                 Shoot();
                 ammo--;
+                muzzleFlash.Play();
+                
             }
             damageDropoff = hit.distance;
         }

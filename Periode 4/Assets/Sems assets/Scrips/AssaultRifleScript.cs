@@ -33,7 +33,7 @@ public class AssaultRifleScript : MonoBehaviour
 
     public void Update()
     {
-        if (ammo > 1)
+        if (ammo > 0)
         {
             if (Input.GetButton("Fire1") && timeBetweenShots == 0f)
             {

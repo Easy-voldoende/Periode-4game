@@ -46,7 +46,7 @@ public class AITest : MonoBehaviour
 
     public void Attack()
     {
-        // HP/ damage system is crap atm, doing doing here!
+        
 
     }
 
