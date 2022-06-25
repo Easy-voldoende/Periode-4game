@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         death = false;
-        maxHp = 200f;
+        maxHp = 200;
         hp = maxHp;
     }
 
