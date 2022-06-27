@@ -22,20 +22,12 @@ public class Enemy : MonoBehaviour
     void Update()
     {
 
-        if(death == true)
-        {
-            int indexToDrop = Random.Range(0, enemyLoot.Length);
-            Instantiate(enemyLoot[indexToDrop], transform.position, Quaternion.identity);
-
-            Destroy(gameObject);
-            
-            
-        }
+        
 
         slider.value = hp;
+       
+        
 
-        
-        
     }
     public void TakeDamage(float amount)
     {
@@ -43,9 +35,9 @@ public class Enemy : MonoBehaviour
         hp -= amount;
         if (hp <= 1f)
         {
+            Instantiate(enemyLoot[Random.Range(0, enemyLoot.Length)], gameObject.transform.position, Quaternion.identity);
             death = true;
             Destroy(gameObject);
-
         }
     }
 
@@ -62,11 +54,5 @@ public class Enemy : MonoBehaviour
            }
        }
     }
-    public void EnemyDrops()
-    {
-        if(death == true)
-        {
-            
-        }
-    }
+    
 }

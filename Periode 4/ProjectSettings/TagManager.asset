@@ -7,6 +7,11 @@ TagManager:
   - Ground
   - Floor
   - ShootAble
+  - cureingredient1
+  - cureingredient2
+  - cureingredient3
+  - cureingredient4
+  - workbench
   layers:
   - Default
   - TransparentFX
