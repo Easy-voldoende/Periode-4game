@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public Slider slider;
     public bool inCombat;
     public float combatCooldown;
+    public GameObject deathCanvas;
     
 
     public void Start()
@@ -27,11 +28,7 @@ public class PlayerHealth : MonoBehaviour
         {
             damageCooldown = 0;
         }
-        
-        if(death == true)
-        {
-           
-        }
+       
         slider.value = health;
 
         if(combatCooldown > 0)
@@ -62,7 +59,10 @@ public class PlayerHealth : MonoBehaviour
         {
             health += 5 * Time.deltaTime;
         }
-
+        if (death == true)
+        {
+            deathCanvas.SetActive(true);
+        }
 
     }
     public void DoDamage(float damageToDo)

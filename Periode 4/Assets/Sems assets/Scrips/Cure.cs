@@ -80,6 +80,7 @@ public class Cure : MonoBehaviour
                     if (Input.GetKeyDown("e"))
                     {
                         winCanvas.SetActive(true);
+
                     }
                 }
             }
