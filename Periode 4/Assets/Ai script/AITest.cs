@@ -18,7 +18,8 @@ public class AITest : MonoBehaviour
     public void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-    }
+        player = GameObject.Find("Player").transform;
+    } 
     void Update()
     {
         // Get distance to player
@@ -37,6 +38,7 @@ public class AITest : MonoBehaviour
         {
             Attack();
         }
+        
     }
 
     public void GotoPlayer()

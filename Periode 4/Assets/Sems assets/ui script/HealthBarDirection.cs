@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class HealthBarDirection : MonoBehaviour
 {
-    public Camera cameraToLookAt;
+    public GameObject cameraToLookAt;
     
     void Update()
     {
+        cameraToLookAt = GameObject.Find("Main Camera");
         Vector3 v = cameraToLookAt.transform.position - transform.position;
         v.x = v.z = 0.0f;
         transform.LookAt(cameraToLookAt.transform.position - v);

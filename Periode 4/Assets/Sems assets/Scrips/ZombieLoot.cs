@@ -21,6 +21,7 @@ public class ZombieLoot : MonoBehaviour
         if (enemy.death == true)
         {
             Instantiate(loot[Random.Range(0, loot.Length)], gameObject.transform.position, Quaternion.identity);
+
         }
     }
 }

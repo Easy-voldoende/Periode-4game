@@ -12,6 +12,7 @@ TagManager:
   - cureingredient3
   - cureingredient4
   - workbench
+  - Spawner
   layers:
   - Default
   - TransparentFX
