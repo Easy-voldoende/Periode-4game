@@ -58,6 +58,7 @@ public class ShootScript1 : MonoBehaviour
     {
         range = 30f;
         damage = 30f;
+        
     }
     
 
