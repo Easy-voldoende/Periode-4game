@@ -42656,7 +42656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2531499200090622079}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.25533, z: -0.12088631}
+  m_LocalPosition: {x: 0, y: 0.25533, z: -0.12088631}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43420,7 +43420,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 2.2227777e-38, y: 9.1858e-41, z: -2.4405384e-30, w: 9.188e-41}
+  m_BoundingSphereOverride: {x: 9.1835e-41, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -50798,7 +50798,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4556291741340038041}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.0014332533, y: -0.18199992, z: -0.46747613}
+  m_LocalPosition: {x: 0.0014332533, y: -0.1819999, z: -0.46747613}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -52830,6 +52830,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3778770356537272611}
   - component: {fileID: 4556291741340038042}
+  - component: {fileID: 4556291741340038044}
+  - component: {fileID: 4556291741340038043}
   m_Layer: 0
   m_Name: Glock19
   m_TagString: Untagged
@@ -52859,6 +52861,47 @@ MonoBehaviour:
   fpsCamera: {fileID: 1314659269950776674}
   text: {fileID: 0}
   bloodFX: {fileID: 8654285094597956141, guid: ee82427b2f33a4945980fe509fa18a53, type: 3}
+--- !u!95 &4556291741340038043
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4556291741340038041}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4f1807fc6031a34a9f0d82beed6d0ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4556291741340038044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4556291741340038041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9571746adbed6bf488553fe8e7518c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sword: {fileID: 0}
+  gun: {fileID: 4556291741340038041}
+  canAttack: 1
+  attackCooldown: 0.1
+  shootScript: {fileID: 0}
+  weaponCycle: 0
+  weaponswitch: {fileID: 0}
+  attackState: 0
+  attackTime: 0
 --- !u!33 &4627716909157348986
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -54016,7 +54059,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3505258801292878344}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.2496811, z: -0.15252012}
+  m_LocalPosition: {x: 0, y: 0.2496811, z: -0.15252012}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
