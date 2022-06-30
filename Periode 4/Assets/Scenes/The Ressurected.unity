@@ -5311,7 +5311,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253445054}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 964.441, y: 811.97095, z: 2222.9775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8027,7 +8027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &372498956
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57156,6 +57156,10 @@ MonoBehaviour:
   ingredient4: 0
   text: {fileID: 389352511}
   cureItemsAqcuired: {fileID: 1055144039}
+  scene:
+    m_Handle: 0
+  inPauseScreen: 0
+  pauseCanvas: {fileID: 604256853}
 --- !u!114 &1314659270776965296
 MonoBehaviour:
   m_ObjectHideFlags: 0

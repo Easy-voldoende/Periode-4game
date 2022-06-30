@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Cure : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class Cure : MonoBehaviour
     public bool ingredient4;
     public TextMeshProUGUI text;
     public TextMeshProUGUI cureItemsAqcuired;
+    public Scene scene;
+    public bool inPauseScreen;
+    public GameObject pauseCanvas;
+    
 
     // Update is called once per frame
     public void Start()
@@ -117,5 +122,8 @@ public class Cure : MonoBehaviour
         {
             text.SetText("Make the cure at your workbench.");
         }
+        
+        
+        
     }
 }

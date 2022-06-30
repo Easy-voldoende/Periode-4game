@@ -24,14 +24,13 @@ public class UserInterface : MonoBehaviour
     }
     void Update()
     {
-        scene = SceneManager.GetActiveScene();
         if (Input.GetKeyDown(KeyCode.Escape) && inPauseScreen == false)
         {
             inPauseScreen = true;
             Time.timeScale = 0f;
             pauseCanvas.SetActive(true);
-            
-            lockcursor.SetActive(false);
+
+
             Cursor.lockState = CursorLockMode.None;
 
         }
@@ -39,13 +38,13 @@ public class UserInterface : MonoBehaviour
         {
             Time.timeScale = 1f;
             pauseCanvas.SetActive(false);
-            lockcursor.SetActive(true);
-            inPauseScreen = false;
 
+            inPauseScreen = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
 
-        
+
     }
 
 
