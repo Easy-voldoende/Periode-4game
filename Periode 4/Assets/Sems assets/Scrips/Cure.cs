@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Cure : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Cure : MonoBehaviour
     public bool ingredient2;
     public bool ingredient3;
     public bool ingredient4;
+    public TextMeshProUGUI text;
+    public TextMeshProUGUI cureItemsAqcuired;
 
     // Update is called once per frame
     public void Start()
@@ -80,14 +83,39 @@ public class Cure : MonoBehaviour
                     if (Input.GetKeyDown("e"))
                     {
                         winCanvas.SetActive(true);
+                        Time.timeScale = 0f;
+                        Cursor.lockState = CursorLockMode.None;
 
                     }
                 }
             }
         }
-
-
-
         
+        if (cureItems == 1)
+        {
+            cureItemsAqcuired.SetText("Cure Ingredients aqcuired: 0/4");
+        }
+
+        if (cureItems == 1)
+        {
+            cureItemsAqcuired.SetText("Cure Ingredients aqcuired: 1/4");
+        }
+        if (cureItems == 2)
+        {
+            cureItemsAqcuired.SetText("Cure Ingredients aqcuired: 2/4");
+        }
+        if (cureItems == 3)
+        {
+            cureItemsAqcuired.SetText("Cure Ingredients aqcuired: 3/4");
+        }
+        if (cureItems == 4)
+        {
+            cureItemsAqcuired.SetText("Cure Ingredients aqcuired: 4/4");
+        }
+
+        if(cureItems == 4)
+        {
+            text.SetText("Make the cure at your workbench.");
+        }
     }
 }

@@ -16,15 +16,18 @@ public class WeaponSwitchFinal : MonoBehaviour
     void Update()
     {
         int previousSelectedWeapon = selectedWeapon;
+        
 
 
 
 
-        if(Input.GetAxis("Mouse ScrollWheel")> 0f)
+        if (Input.GetAxis("Mouse ScrollWheel")> 0f)
         {
+            
             if (selectedWeapon >= transform.childCount - 1) 
             {
                 selectedWeapon = 0;
+                
             }
             else
             {

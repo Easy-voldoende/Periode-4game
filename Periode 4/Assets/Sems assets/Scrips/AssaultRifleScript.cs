@@ -46,8 +46,14 @@ public class AssaultRifleScript : MonoBehaviour
 
         }
 
-
-
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            damage = 200;
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            damage = 25;
+        }
 
 
         timeBetweenShots -= 1 * Time.deltaTime;
