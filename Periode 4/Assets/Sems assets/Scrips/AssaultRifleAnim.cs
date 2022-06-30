@@ -12,6 +12,7 @@ public class AssaultRifleAnim : MonoBehaviour
     public float max;
     public AssaultRifleScript shootScript;
 
+
     public void Start()
     {
         anim = gun.GetComponent<Animator>();
@@ -47,7 +48,7 @@ public class AssaultRifleAnim : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             shootCooldown += 0.1f;
-            if(shootScript.ammo > 1)
+            if(shootScript.ammo > 1 &&shootScript.isReloading == false)
             {
                 shootstate = 1;
             }
@@ -72,7 +73,16 @@ public class AssaultRifleAnim : MonoBehaviour
             shootstate = 0;
         }
         Animator anim = GameObject.Find("AK47").GetComponent<Animator>();
+
+        
+
+
+
+
+
+
         anim.SetInteger("Fire", shootstate);
+        anim.SetBool("Reload", shootScript.isReloading);
     }
 
     public void Shoot()
@@ -83,6 +93,17 @@ public class AssaultRifleAnim : MonoBehaviour
             shootstate++;
             anim.SetInteger("Fire", shootstate);
 
+
+        }
+    }
+    public void ReloadAnim()
+    {
+        Animator anim = GameObject.Find("AK47").GetComponent<Animator>();
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+
+
+            anim.SetBool("Reload", shootScript.isReloading);
 
         }
     }

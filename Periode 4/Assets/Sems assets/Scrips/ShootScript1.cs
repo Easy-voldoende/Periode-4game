@@ -18,12 +18,25 @@ public class ShootScript1 : MonoBehaviour
     public Camera fpsCamera;
     public TextMeshProUGUI text;
     public ParticleSystem bloodFX;
-    
+    public GameObject noAmmoCanvas;
     RaycastHit hit;
+    public GameObject reloadCanvas;
+    public GameObject reloadingCanvas;
+    public bool isReloading;
+    public bool canFire;
+    public float reloadTime;
 
+
+    public void Start()
+    {
+        range = 30f;
+        damage = 30f;
+        reloadTime = 1;
+
+    }
     public void Update()
     {
-        if(ammo > 0)
+        if(ammo > 0 && canFire == true)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -32,9 +45,9 @@ public class ShootScript1 : MonoBehaviour
                 
                 
             }
-            damageDropoff = hit.distance;
+            
         }
-
+        damageDropoff = hit.distance;
         text.text = ammo.ToString();
         
         if(ammo < 0)
@@ -53,13 +66,44 @@ public class ShootScript1 : MonoBehaviour
             isFiring = false;
 
         }
+        if (ammo > 0 && isReloading == false)
+        {
+            canFire = true;
+        }
+        else if (ammo == 0)
+        {
+            canFire = false;
+        }
+
+        if (ammo == 0 && isReloading == false)
+        {
+            reloadCanvas.SetActive(true);
+        }
+        else
+        {
+            reloadCanvas.SetActive(false);
+        }
+
+        if (ammo == 0)
+        {
+            noAmmoCanvas.SetActive(true);
+        }
+        else
+        {
+            noAmmoCanvas.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+
+            reloadingCanvas.SetActive(true);
+            reloadCanvas.SetActive(false);
+            isReloading = true;
+            canFire = false;
+            Invoke("Reload", reloadTime);
+        }
     }
-    public void Start()
-    {
-        range = 30f;
-        damage = 30f;
-        
-    }
+    
     
 
     public void Shoot()
@@ -84,5 +128,17 @@ public class ShootScript1 : MonoBehaviour
         }
 
     }
+    public void Reload()
+    {
 
+        Invoke("ReloadFinished", 0f);
+    }
+    public void ReloadFinished()
+    {
+        ammo = 15;
+        canFire = true;
+        isReloading = false;
+        reloadingCanvas.SetActive(false);
+
+    }
 }

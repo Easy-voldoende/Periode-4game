@@ -20,36 +20,36 @@ public class AssaultRifleScript : MonoBehaviour
     public float timeBetweenShots;
     public ParticleSystem muzzleFlash;
     public ParticleSystem bloodFX;
-    
-
+    public GameObject reloadCanvas;
+    public float reloadTime;
+    public bool canFire;
     RaycastHit hit;
-
+    public bool isReloading;
+    public GameObject reloadingCanvas;
 
     public void Start()
     {
         range = 50f;
         damage = 25f;
         timeBetweenShots = 0.1f;
-        
+        canFire = true;
+        reloadTime = 1f;
     }
 
     public void Update()
     {
-        if (ammo > 0)
+        if (Input.GetButton("Fire1") && timeBetweenShots == 0f && canFire == true)
         {
-            if (Input.GetButton("Fire1") && timeBetweenShots == 0f)
-            {
-                Shoot();
-                timeBetweenShots = 0.1f;
-                ammo--;
-
-            }
-
-
-
-
+            Shoot();
+            timeBetweenShots = 0.1f;
+            ammo--;
 
         }
+
+
+
+
+
         timeBetweenShots -= 1 * Time.deltaTime;
         damageDropoff = hit.distance;
 
@@ -63,10 +63,7 @@ public class AssaultRifleScript : MonoBehaviour
             ammo = 0;
         }
 
-        if (Input.GetKeyDown("r"))
-        {
-            ammo = 30;
-        }
+        
         if (Input.GetMouseButton(0))
         {
             isFiring = true;
@@ -78,6 +75,37 @@ public class AssaultRifleScript : MonoBehaviour
             isFiring = false;
         }
         ammoDisplay.text = ammo.ToString();
+        if(ammo == 0 && isReloading == false)
+        {
+            reloadCanvas.SetActive(true);
+        }
+        else
+        {
+            reloadCanvas.SetActive(false);
+        }
+
+        
+
+
+        if (ammo > 0 && isReloading == false)
+        {
+            canFire = true;
+        }
+        else if(ammo == 0)
+        {
+            canFire = false;
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            
+            reloadingCanvas.SetActive(true);
+            reloadCanvas.SetActive(false);
+            isReloading = true;
+            canFire = false;
+            Invoke("Reload", reloadTime);
+        }
     }
 
 
@@ -107,4 +135,18 @@ public class AssaultRifleScript : MonoBehaviour
 
     }
 
+
+    public void Reload()
+    {
+        
+        Invoke("ReloadFinished", 0f);
+    }
+    public void ReloadFinished()
+    {
+        ammo = 30;
+        canFire = true;
+        isReloading = false;
+        reloadingCanvas.SetActive(false);
+
+    }
 }

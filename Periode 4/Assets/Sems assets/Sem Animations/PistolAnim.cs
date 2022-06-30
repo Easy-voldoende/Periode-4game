@@ -7,7 +7,7 @@ public class PistolAnim : MonoBehaviour
     public GameObject sword, gun;
     public bool canAttack = true;
     public float attackCooldown = 0.1f;
-    public ShootScript1 shootScript;
+    
     public float weaponCycle;
     public WeaponSwitch weaponswitch;
     public int attackState;
@@ -18,13 +18,13 @@ public class PistolAnim : MonoBehaviour
 
     void Update()
     {
-
+        ShootScript1 shootscript1 = GameObject.Find("Glock19").GetComponent<ShootScript1>();
         if (attackState >1) 
         {
             attackState = 0;
             canAttack = true;
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && shootscript1.isReloading == false)
         {
             if (canAttack)
             {
@@ -75,7 +75,7 @@ public class PistolAnim : MonoBehaviour
             canAttack = true;
         }
         Animator anim = sword.GetComponent<Animator>();
-        anim.SetInteger("AttackState", attackState);
+        
     }
 
 

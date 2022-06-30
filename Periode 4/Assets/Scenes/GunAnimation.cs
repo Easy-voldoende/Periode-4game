@@ -28,7 +28,7 @@ public class GunAnimation : MonoBehaviour
         }
         shootCooldown -= 1 * Time.deltaTime;
 
-        if(shootScript.ammo > 0)
+        if(shootScript.ammo > 0 &&shootScript.isReloading == false)
         {
             if (shootCooldown < min)
             {
@@ -56,6 +56,7 @@ public class GunAnimation : MonoBehaviour
         }
         Animator anim = GameObject.Find("Glock19").GetComponent<Animator>();
         anim.SetInteger("Fire", shootstate);
+        anim.SetBool("ReloadPistol", shootScript.isReloading);
     }
 
     public void Shoot()
@@ -68,5 +69,9 @@ public class GunAnimation : MonoBehaviour
             
             
         }
+    }
+    public void ReloadAnim()
+    {
+        
     }
 }
