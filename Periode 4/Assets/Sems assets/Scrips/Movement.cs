@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
     //rotation
     public float sensitivity = 200f;
     public Transform playerBody;
-    float xRotation = 0f;
+    
 
     void Start()
     {
