@@ -19,7 +19,7 @@ public class ShootScript1 : MonoBehaviour
     public TextMeshProUGUI text;
     public ParticleSystem bloodFX;
     public GameObject noAmmoCanvas;
-    RaycastHit hit;
+    public RaycastHit hit;
     public GameObject reloadCanvas;
     public GameObject reloadingCanvas;
     public bool isReloading;

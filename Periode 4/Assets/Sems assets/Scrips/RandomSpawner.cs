@@ -14,7 +14,7 @@ public class RandomSpawner : MonoBehaviour
 
        if(respawns.Length < 10)
        {
-           Vector3 randomSpawnPosition = new Vector3(Random.Range(-10, 11), 5, Random.Range(-10, 11));
+            Vector3 randomSpawnPosition = gameObject.transform.position;
            Instantiate(zombie, randomSpawnPosition, Quaternion.identity);
        }
         

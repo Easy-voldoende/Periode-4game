@@ -62,6 +62,7 @@ public class PlayerHealth : MonoBehaviour
         if (death == true)
         {
             deathCanvas.SetActive(true);
+            Time.timeScale = 0f;
         }
 
     }

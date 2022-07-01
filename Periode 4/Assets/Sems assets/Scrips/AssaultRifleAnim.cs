@@ -35,7 +35,7 @@ public class AssaultRifleAnim : MonoBehaviour
             {
                 if (shootCooldown < min)
                 {
-                    Debug.Log("Shooting");
+                    
                     if (Input.GetMouseButton(0))
                     {
                         Shoot();

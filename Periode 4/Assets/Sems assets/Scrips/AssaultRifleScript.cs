@@ -13,7 +13,7 @@ public class AssaultRifleScript : MonoBehaviour
     public float damage;
     public float damageDropoff;
     public bool isFiring;
-
+    public float pickupRange;
     public float ammo = 30;
     public Camera fpsCamera;
     public TextMeshProUGUI ammoDisplay;
@@ -24,8 +24,11 @@ public class AssaultRifleScript : MonoBehaviour
     public float reloadTime;
     public bool canFire;
     RaycastHit hit;
+    RaycastHit hitTwo;
     public bool isReloading;
     public GameObject reloadingCanvas;
+    public bool pizzaShot;
+    public GameObject e;
 
     public void Start()
     {
@@ -34,6 +37,7 @@ public class AssaultRifleScript : MonoBehaviour
         timeBetweenShots = 0.1f;
         canFire = true;
         reloadTime = 1f;
+        pickupRange = 2;
     }
 
     public void Update()
@@ -112,6 +116,22 @@ public class AssaultRifleScript : MonoBehaviour
             canFire = false;
             Invoke("Reload", reloadTime);
         }
+        if(Physics.Raycast(fpsCamera.transform.position, fpsCamera.transform.forward, out hitTwo, pickupRange))
+        {
+            if(hitTwo.transform.gameObject.name == "Ingredient(Clone)")
+            {
+                e.SetActive(true);
+            }
+            else
+            {
+                e.SetActive(false);
+                
+            }
+            
+            
+            
+            
+        }
     }
 
 
@@ -137,8 +157,16 @@ public class AssaultRifleScript : MonoBehaviour
 
             }
 
-        }
 
+            print(hit.transform.name);
+            if (hit.transform.gameObject.name == "Ingredient(Clone)")
+            {
+                hit.transform.gameObject.GetComponent<Animator>().SetBool("ShotPizza", true);
+
+            }
+
+        }
+        
     }
 
 
@@ -155,4 +183,5 @@ public class AssaultRifleScript : MonoBehaviour
         reloadingCanvas.SetActive(false);
 
     }
+    
 }

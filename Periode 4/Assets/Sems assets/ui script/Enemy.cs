@@ -21,12 +21,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
-
         slider.value = hp;
-       
-        
 
     }
     public void TakeDamage(float amount)
